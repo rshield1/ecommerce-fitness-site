@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Fitness Questionnaire</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.height.label }}<br>
+            {{ form.height() }} cm<br>
+            {% for error in form.height.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.weight.label }}<br>
+            {{ form.weight() }} kg<br>
+            {% for error in form.weight.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.activity_level.label }}<br>
+            {{ form.activity_level() }}<br>
+            {% for error in form.activity_level.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.fitness_goal.label }}<br>
+            {{ form.fitness_goal() }}<br>
+            {% for error in form.fitness_goal.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

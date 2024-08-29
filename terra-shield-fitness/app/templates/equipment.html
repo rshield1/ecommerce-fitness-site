@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Available Equipment</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>Select the equipment you have available:</p>
+        {% for subfield in form.equipment %}
+            <div>
+                {{ subfield }}
+                {{ subfield.label }}
+            </div>
+        {% endfor %}
+        {% for error in form.equipment.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}
